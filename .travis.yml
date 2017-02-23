@@ -1,0 +1,22 @@
+dist: trusty
+sudo: false
+
+language:
+  - cpp
+
+addons:
+  apt:
+    packages:
+      - libgtest-dev
+    sources:
+      - ubuntu-toolchain-r-test
+
+script:
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
+  - make test
+
+notifications:
+  email: false
