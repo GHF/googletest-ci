@@ -7,7 +7,7 @@ continuous integration.
 
 Public domain under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
 
-[![License CC0](https://img.shields.io/badge/license-CC0-blue.svg)]
+[![License CC0](https://img.shields.io/badge/license-CC0-blue.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 
 
 ## Branches
