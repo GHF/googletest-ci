@@ -10,4 +10,4 @@ target_link_libraries(foo_test ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(foo_test ${CMAKE_THREAD_LIBS_INIT})
 
 enable_testing()
-add_test(A foo_test)
+GTEST_ADD_TESTS(foo_test "" foo_test.cc)
