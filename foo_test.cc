@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
 
-TEST(TravisGoogleTest, Foo) {
+TEST(GoogleTestCi, Foo) {
   ASSERT_TRUE(true);
 }
