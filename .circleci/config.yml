@@ -31,13 +31,14 @@ jobs:
         - run: |
             cd build
             make
-        - run: mkdir -p $TEST_RESULTS
         - run:
             name: Run unit tests
-            environment:
-              GTEST_OUTPUT: "xml:$TEST_RESULTS"
             command: |
+              # The "environment:" option doesn't expand vars.
+              export GTEST_OUTPUT=xml:${TEST_RESULTS}/
+              mkdir -p $TEST_RESULTS
               cd build
               make test
         - store_test_results:
-            path: $TEST_RESULTS
+            # This option doesn't expand $TEST_RESULTS if used.
+            path: /tmp/test-results
