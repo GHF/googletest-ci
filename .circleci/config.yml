@@ -3,6 +3,8 @@ jobs:
     docker:
       - image: gcc:latest
     working_directory: ~/circleci-googletest
+    environment:
+      TEST_RESULTS: /tmp/test-results
     steps:
         - run:
             name: Install CMake
@@ -29,6 +31,13 @@ jobs:
         - run: |
             cd build
             make
-        - run: |
-            cd build
-            make test
+        - run: mkdir -p $TEST_RESULTS
+        - run:
+            name: Run unit tests
+            environment:
+              GTEST_OUTPUT: "xml:$TEST_RESULTS"
+            command: |
+              cd build
+              make test
+        - store_test_results:
+            path: $TEST_RESULTS
