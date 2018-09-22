@@ -1,5 +1,8 @@
 language: c
 
+env:
+  - TEST_RESULTS=$SHIPPABLE_BUILD_DIR/shippable/testresults/
+
 build:
   ci:
     - sudo apt-get -q -y update
@@ -16,4 +19,4 @@ build:
     - cd build
     - cmake -D GTEST_ROOT:PATH=$HOME/googletest ..
     - make
-    - make test
+    - make test GTEST_OUTPUT=xml:$TEST_RESULTS
