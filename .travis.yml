@@ -1,23 +1,12 @@
-dist: trusty
-sudo: false
+os: linux
+dist: focal
 
 language:
   - cpp
 
-install:
-  - mkdir ~/googletest
-  - pushd ~/googletest
-  - wget -qO - https://github.com/google/googletest/archive/release-1.8.1.tar.gz | tar -xz
-  - cmake -D CMAKE_INSTALL_PREFIX:PATH=$HOME/googletest -D CMAKE_BUILD_TYPE=Release googletest-release-1.8.1
-  - make install
-  - popd
-
 script:
   - mkdir build
   - cd build
-  - cmake -D GTEST_ROOT:PATH=$HOME/googletest ..
+  - cmake ..
   - make
-  - make test
-
-notifications:
-  email: false
+  - ./foo_test
