@@ -2,9 +2,10 @@
 
 | **CI Service** | Build Status |
 |:---------------|-------------:|
+| GitHub Actions | [![Build Status (GitHub Actions)](https://github.com/GHF/googletest-ci/workflows/CMake%20Tests/badge.svg)](https://github.com/GHF/googletest-ci/actions?query=workflow%3A"CMake%20Tests") |
 | CircleCI | [![Build Status (CircleCI)](https://circleci.com/gh/GHF/googletest-ci.svg?style=svg)](https://circleci.com/gh/GHF/googletest-ci) |
-| Shippable | [![Build Status (Shippable)](https://api.shippable.com/projects/58cd9b7935d7240600ba0471/badge?branch=master)](https://app.shippable.com/github/GHF/googletest-ci) |
-| Travis | [![Build Status (Travis)](https://travis-ci.org/GHF/googletest-ci.svg?branch=master)](https://travis-ci.org/GHF/googletest-ci) |
+| Shippable | [![Build Status (Shippable)](https://api.shippable.com/projects/58cd9b7935d7240600ba0471/badge?branch=dev)](https://app.shippable.com/github/GHF/googletest-ci) |
+| Travis | [![Build Status (Travis)](https://travis-ci.org/GHF/googletest-ci.svg?branch=dev)](https://travis-ci.org/GHF/googletest-ci) |
 
 Example of unit testing with [Google Test](https://code.google.com/p/googletest)
 compiled with CMake and deployed to various continuous integration (CI) systems.
