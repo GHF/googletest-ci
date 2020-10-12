@@ -15,4 +15,4 @@ build:
     - cd build
     - cmake ..
     - make
-    - GTEST_OUTPUT=xml:$TEST_RESULTS ./foo_test
+    - GTEST_OUTPUT=xml:$TEST_RESULTS GTEST_COLOR=1 ctest -V

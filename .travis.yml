@@ -9,4 +9,4 @@ script:
   - cd build
   - cmake ..
   - make
-  - ./foo_test
+  - GTEST_COLOR=1 ctest -V

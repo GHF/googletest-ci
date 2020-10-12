@@ -12,4 +12,5 @@ FetchContent_MakeAvailable(googletest)
 
 add_executable(foo_test foo_test.cc)
 target_link_libraries(foo_test gtest_main)
-add_test(NAME foo_test COMMAND foo_test.cc)
+enable_testing()
+add_test(NAME foo_test COMMAND foo_test)
