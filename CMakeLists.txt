@@ -6,10 +6,11 @@ include(FetchContent)
 FetchContent_Declare(
   googletest
   GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG        release-1.8.1
+  GIT_TAG        release-1.10.0
 )
 FetchContent_MakeAvailable(googletest)
 
+set(CMAKE_CXX_STANDARD 11)
 add_executable(foo_test foo_test.cc)
 target_link_libraries(foo_test gtest_main)
 enable_testing()
