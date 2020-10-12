@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: gcc:latest
+      - image: cimg/base:stable
     working_directory: ~/circleci-googletest
     environment:
       TEST_RESULTS: /tmp/test-results
@@ -10,8 +10,8 @@ jobs:
         - run:
             name: Install CMake
             command: |
-              apt-get -y -q update
-              apt-get -y -q install cmake
+              sudo apt -y -q update
+              sudo apt -y -q install cmake
         - run:
             name: Install Google Test
             working_directory: ~/googletest
