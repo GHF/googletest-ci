@@ -12,20 +12,13 @@ jobs:
             command: |
               sudo apt -y -q update
               sudo apt -y -q install cmake
-        - run:
-            name: Install Google Test
-            working_directory: ~/googletest
-            command: |
-              wget -qO - https://github.com/google/googletest/archive/release-1.8.1.tar.gz | tar -xz
-              cmake -D CMAKE_INSTALL_PREFIX:PATH=$HOME/googletest -D CMAKE_BUILD_TYPE=Release googletest-release-1.8.1
-              make install
         - checkout
         - run:
             name: CMake build files
             command: |
               mkdir build
               cd build
-              cmake -D GTEST_ROOT:PATH=$HOME/googletest ..
+              cmake ..
         - run: |
             cd build
             make
@@ -36,7 +29,7 @@ jobs:
               export GTEST_OUTPUT=xml:${TEST_RESULTS}/
               mkdir -p $TEST_RESULTS
               cd build
-              make test
+              ./foo_test
         - store_test_results:
             # This option doesn't expand $TEST_RESULTS if used.
             path: /tmp/test-results
