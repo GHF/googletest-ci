@@ -24,16 +24,15 @@ with minimal steps.
 After cloning, to build:
 
 ```
-mkdir mybuild
+cmake -S . -B mybuild
 cd mybuild
-cmake ..
-make
+cmake --build .
 ```
 
 Then to run:
 
 ```
-./foo_test
+ctest
 ```
 
 ## License
