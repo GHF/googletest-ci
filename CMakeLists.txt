@@ -11,7 +11,10 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 set(CMAKE_CXX_STANDARD 11)
-add_executable(foo_test foo_test.cc)
-target_link_libraries(foo_test gtest_main)
+set(TEST_NAME ${PROJECT_NAME}_tests)
+add_executable(${TEST_NAME} foo_test.cc)
+target_link_libraries(${TEST_NAME} gtest_main)
+
 enable_testing()
-add_test(NAME foo_test COMMAND foo_test)
+include(GoogleTest)
+gtest_discover_tests(${TEST_NAME})
