@@ -1,0 +1,24 @@
+trigger:
+- dev
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: CMake@1
+  inputs:
+    cmakeArgs: -S $(Build.SourcesDirectory) -B $(Build.SourcesDirectory)/build
+  displayName: 'Initialize CMake'
+- task: CMake@1
+  inputs:
+    cmakeArgs: --build $(Build.SourcesDirectory)/build
+  displayName: 'Build test binary'
+- script: |
+    cd build
+    GTEST_OUTPUT=xml:test-results/ GTEST_COLOR=1 ctest -V
+  displayName: 'Run tests'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: "build/test-results/*.xml"
+  condition: succeededOrFailed()
+  displayName: 'Publish test results'
